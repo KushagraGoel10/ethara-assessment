@@ -1,10 +1,17 @@
-from fastapi import FastAPI
+from fastapi import APIRouter, FastAPI
+
+from app.core.config import settings
+
 
 app = FastAPI(
-    title="Seat Allocation API",
-    version="1.0.0"
+    title=settings.APP_NAME,
+    version="1.0.0",
 )
 
-@app.get("/")
-def root():
-    return {"message": "Seat Allocation API is running 🚀"}
+api_router = APIRouter()
+app.include_router(api_router, prefix=settings.API_PREFIX)
+
+
+@app.get("/health")
+def health_check() -> dict[str, str]:
+    return {"status": "ok"}
