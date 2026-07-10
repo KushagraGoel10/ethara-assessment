@@ -1,6 +1,7 @@
 from fastapi import APIRouter, FastAPI
 
 from app.core.config import settings
+from app.departments.router import router as departments_router
 from app.employees.router import router as employees_router
 
 
@@ -10,6 +11,7 @@ app = FastAPI(
 )
 
 api_router = APIRouter()
+api_router.include_router(departments_router)
 api_router.include_router(employees_router)
 app.include_router(api_router, prefix=settings.API_PREFIX)
 
