@@ -1,6 +1,7 @@
 from fastapi import APIRouter, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.ai.router import router as ai_router
 from app.core.config import settings
 from app.dashboard.router import router as dashboard_router
 from app.departments.router import router as departments_router
@@ -41,6 +42,7 @@ api_router.include_router(seats_router)
 api_router.include_router(project_assignments_router)
 api_router.include_router(seat_allocations_router)
 api_router.include_router(dashboard_router)
+api_router.include_router(ai_router)
 app.include_router(api_router, prefix=settings.API_PREFIX)
 
 

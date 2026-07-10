@@ -46,14 +46,14 @@ export function MasterDataModal<T extends object>({
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
-      <div className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-lg border border-border bg-background shadow-lg">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/45 p-4 backdrop-blur-sm">
+      <div className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-lg border border-border bg-background shadow-xl shadow-black/10">
         <div className="flex items-center justify-between border-b border-border px-5 py-4">
-          <div>
+          <div className="min-w-0">
             <h3 className="text-lg font-semibold">{title}</h3>
             <p className="text-sm text-muted-foreground">{description}</p>
           </div>
-          <Button variant="ghost" size="icon" onClick={onClose}>
+          <Button variant="ghost" size="icon" onClick={onClose} aria-label="Close dialog">
             <X className="size-4" />
           </Button>
         </div>
@@ -71,7 +71,10 @@ export function MasterDataModal<T extends object>({
 
               if (field.type === "checkbox") {
                 return (
-                  <label key={String(field.name)} className="flex items-center gap-2 text-sm">
+                  <label
+                    key={String(field.name)}
+                    className="flex items-center gap-2 rounded-md border border-border px-3 py-2 text-sm"
+                  >
                     <input
                       type="checkbox"
                       checked={Boolean(value)}
@@ -89,6 +92,7 @@ export function MasterDataModal<T extends object>({
                     <textarea
                       className="form-input min-h-24 py-2"
                       value={String(value)}
+                      disabled={isSubmitting}
                       onChange={(event) => onChange(field.name, event.target.value)}
                     />
                   </label>
@@ -102,6 +106,7 @@ export function MasterDataModal<T extends object>({
                     <select
                       className="form-input"
                       value={String(value)}
+                      disabled={isSubmitting}
                       onChange={(event) => onChange(field.name, Number(event.target.value))}
                     >
                       <option value="">Select</option>
@@ -122,6 +127,7 @@ export function MasterDataModal<T extends object>({
                     className="form-input"
                     type={field.type}
                     value={String(value)}
+                    disabled={isSubmitting}
                     onChange={(event) =>
                       onChange(
                         field.name,
@@ -140,7 +146,7 @@ export function MasterDataModal<T extends object>({
             </p>
           ) : null}
 
-          <div className="flex justify-end gap-2">
+          <div className="flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
             <Button type="button" variant="outline" onClick={onClose}>
               Cancel
             </Button>

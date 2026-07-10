@@ -85,27 +85,27 @@ export function EmployeeForm({
     <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
       <div className="grid gap-4 sm:grid-cols-2">
         <FormField label="Employee Code" error={errors.employee_code?.message}>
-          <input className="form-input" {...register("employee_code")} />
+          <input className="form-input" disabled={isSubmitting} {...register("employee_code")} />
         </FormField>
 
         <FormField label="Email" error={errors.email?.message}>
-          <input className="form-input" type="email" {...register("email")} />
+          <input className="form-input" type="email" disabled={isSubmitting} {...register("email")} />
         </FormField>
 
         <FormField label="First Name" error={errors.first_name?.message}>
-          <input className="form-input" {...register("first_name")} />
+          <input className="form-input" disabled={isSubmitting} {...register("first_name")} />
         </FormField>
 
         <FormField label="Last Name" error={errors.last_name?.message}>
-          <input className="form-input" {...register("last_name")} />
+          <input className="form-input" disabled={isSubmitting} {...register("last_name")} />
         </FormField>
 
         <FormField label="Designation" error={errors.designation?.message}>
-          <input className="form-input" {...register("designation")} />
+          <input className="form-input" disabled={isSubmitting} {...register("designation")} />
         </FormField>
 
         <FormField label="Joining Date" error={errors.joining_date?.message}>
-          <input className="form-input" type="date" {...register("joining_date")} />
+          <input className="form-input" type="date" disabled={isSubmitting} {...register("joining_date")} />
         </FormField>
 
         <FormField label="Department ID" error={errors.department_id?.message}>
@@ -113,6 +113,7 @@ export function EmployeeForm({
             className="form-input"
             type="number"
             min="1"
+            disabled={isSubmitting}
             {...register("department_id", { valueAsNumber: true })}
           />
         </FormField>
@@ -122,18 +123,19 @@ export function EmployeeForm({
             className="form-input"
             type="number"
             min="1"
+            disabled={isSubmitting}
             {...register("team_id", { valueAsNumber: true })}
           />
         </FormField>
       </div>
 
       <div className="flex flex-wrap gap-4">
-        <label className="flex items-center gap-2 text-sm">
-          <input type="checkbox" {...register("is_new_joiner")} />
+        <label className="flex items-center gap-2 rounded-md border border-border px-3 py-2 text-sm">
+          <input type="checkbox" disabled={isSubmitting} {...register("is_new_joiner")} />
           New joiner
         </label>
-        <label className="flex items-center gap-2 text-sm">
-          <input type="checkbox" {...register("is_active")} />
+        <label className="flex items-center gap-2 rounded-md border border-border px-3 py-2 text-sm">
+          <input type="checkbox" disabled={isSubmitting} {...register("is_active")} />
           Active
         </label>
       </div>
@@ -144,7 +146,7 @@ export function EmployeeForm({
         </p>
       ) : null}
 
-      <div className="flex justify-end gap-2">
+      <div className="flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
         <Button type="button" variant="outline" onClick={onCancel}>
           Cancel
         </Button>

@@ -12,7 +12,7 @@ function MetricCard({ title, value }: { title: string; value: number | string })
         <CardTitle>{title}</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="text-2xl font-semibold text-foreground">{value}</div>
+        <div className="text-3xl font-semibold text-foreground">{value}</div>
       </CardContent>
     </Card>
   )
@@ -46,9 +46,12 @@ export default function Home() {
 
         {isError ? (
           <Card>
-            <CardContent className="p-5">
-              <p className="text-sm font-medium text-foreground">
+            <CardContent className="p-6 text-center">
+              <p className="text-sm font-semibold text-foreground">
                 Unable to load dashboard data.
+              </p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Check the backend server and refresh the page.
               </p>
             </CardContent>
           </Card>

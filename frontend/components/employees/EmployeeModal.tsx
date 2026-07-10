@@ -30,10 +30,10 @@ export function EmployeeModal({
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
-      <div className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-lg border border-border bg-background shadow-lg">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/45 p-4 backdrop-blur-sm">
+      <div className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-lg border border-border bg-background shadow-xl shadow-black/10">
         <div className="flex items-center justify-between border-b border-border px-5 py-4">
-          <div>
+          <div className="min-w-0">
             <h3 className="text-lg font-semibold">
               {mode === "create" ? "Create Employee" : "Edit Employee"}
             </h3>
@@ -41,7 +41,7 @@ export function EmployeeModal({
               {mode === "create" ? "Add a new employee record." : "Update employee details."}
             </p>
           </div>
-          <Button variant="ghost" size="icon" onClick={onClose}>
+          <Button variant="ghost" size="icon" onClick={onClose} aria-label="Close dialog">
             <X className="size-4" />
           </Button>
         </div>
