@@ -1,9 +1,5 @@
-import { AppLayout } from "@/components/layout/AppLayout"
+import { TeamManager } from "@/components/teams/TeamManager"
 
 export default function TeamsPage() {
-  return (
-    <AppLayout>
-      <h2 className="text-2xl font-semibold tracking-tight">Teams</h2>
-    </AppLayout>
-  )
+  return <TeamManager />
 }

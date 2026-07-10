@@ -1,9 +1,5 @@
-import { AppLayout } from "@/components/layout/AppLayout"
+import { FloorManager } from "@/components/floors/FloorManager"
 
 export default function FloorsPage() {
-  return (
-    <AppLayout>
-      <h2 className="text-2xl font-semibold tracking-tight">Floors</h2>
-    </AppLayout>
-  )
+  return <FloorManager />
 }
