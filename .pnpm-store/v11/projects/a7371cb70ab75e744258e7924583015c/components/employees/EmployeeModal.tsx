@@ -30,11 +30,11 @@ export function EmployeeModal({
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/45 p-4 backdrop-blur-sm">
-      <div className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-lg border border-border bg-background shadow-xl shadow-black/10">
-        <div className="flex items-center justify-between border-b border-border px-5 py-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 p-4 backdrop-blur-[2px]">
+      <div className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-xl border border-border bg-background shadow-2xl shadow-slate-950/20">
+        <div className="flex items-center justify-between px-5 py-4">
           <div className="min-w-0">
-            <h3 className="text-lg font-semibold">
+            <h3 className="text-base font-bold">
               {mode === "create" ? "Create Employee" : "Edit Employee"}
             </h3>
             <p className="text-sm text-muted-foreground">

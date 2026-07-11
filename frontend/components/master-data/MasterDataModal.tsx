@@ -46,11 +46,11 @@ export function MasterDataModal<T extends object>({
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/45 p-4 backdrop-blur-sm">
-      <div className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-lg border border-border bg-background shadow-xl shadow-black/10">
-        <div className="flex items-center justify-between border-b border-border px-5 py-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 p-4 backdrop-blur-[2px]">
+      <div className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-xl border border-border bg-background shadow-2xl shadow-slate-950/20">
+        <div className="flex items-center justify-between px-5 py-4">
           <div className="min-w-0">
-            <h3 className="text-lg font-semibold">{title}</h3>
+            <h3 className="text-base font-bold">{title}</h3>
             <p className="text-sm text-muted-foreground">{description}</p>
           </div>
           <Button variant="ghost" size="icon" onClick={onClose} aria-label="Close dialog">
@@ -73,7 +73,7 @@ export function MasterDataModal<T extends object>({
                 return (
                   <label
                     key={String(field.name)}
-                    className="flex items-center gap-2 rounded-md border border-border px-3 py-2 text-sm"
+                    className="flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm"
                   >
                     <input
                       type="checkbox"
@@ -141,7 +141,7 @@ export function MasterDataModal<T extends object>({
           </div>
 
           {errorMessage ? (
-            <p className="rounded-md bg-destructive/10 px-3 py-2 text-sm text-destructive">
+            <p className="rounded-lg bg-destructive/10 px-3 py-2 text-sm text-destructive">
               {errorMessage}
             </p>
           ) : null}

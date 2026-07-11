@@ -77,18 +77,18 @@ export function MasterDataTable<T extends { id: number }>({
     <Card className="overflow-hidden">
       <CardContent className="p-0">
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[720px] text-left text-sm">
-            <thead className="border-b border-border bg-muted/50 text-xs uppercase text-muted-foreground">
+          <table className="w-full min-w-[720px] text-left text-xs">
+            <thead className="border-b border-border bg-muted/30 text-[11px] text-muted-foreground">
               <tr>
                 {columns.map((column) => (
                   <th
                     key={column.header}
-                    className={cn("px-4 py-3 font-semibold tracking-wide", column.className)}
+                    className={cn("px-4 py-3 font-bold", column.className)}
                   >
                     {column.header}
                   </th>
                 ))}
-                <th className="px-4 py-3 text-right font-semibold tracking-wide">Actions</th>
+                <th className="px-4 py-3 text-right font-bold">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border">
@@ -103,9 +103,13 @@ export function MasterDataTable<T extends { id: number }>({
                     </td>
                   ))}
                   <td className="px-4 py-3.5 text-right align-middle">
-                    <Button variant="outline" size="sm" onClick={() => onEdit(item)}>
+                    <Button
+                      variant="outline"
+                      size="icon-sm"
+                      onClick={() => onEdit(item)}
+                      aria-label="Edit record"
+                    >
                       <Pencil className="size-3.5" />
-                      Edit
                     </Button>
                   </td>
                 </tr>

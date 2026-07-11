@@ -342,3 +342,4 @@ The repository includes screenshots for:
 Kushagra Goel
 
 Ethara AI Technical Assessment
+

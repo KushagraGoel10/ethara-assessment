@@ -65,17 +65,17 @@ export function EmployeeTable({
     <Card className="overflow-hidden">
       <CardContent className="p-0">
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[900px] text-left text-sm">
-            <thead className="border-b border-border bg-muted/50 text-xs uppercase text-muted-foreground">
+          <table className="w-full min-w-[900px] text-left text-xs">
+            <thead className="border-b border-border bg-muted/30 text-[11px] text-muted-foreground">
               <tr>
-                <th className="px-4 py-3 font-semibold tracking-wide">Code</th>
-                <th className="px-4 py-3 font-semibold tracking-wide">Name</th>
-                <th className="px-4 py-3 font-semibold tracking-wide">Email</th>
-                <th className="px-4 py-3 font-semibold tracking-wide">Designation</th>
-                <th className="px-4 py-3 font-semibold tracking-wide">Department</th>
-                <th className="px-4 py-3 font-semibold tracking-wide">Team</th>
-                <th className="px-4 py-3 font-semibold tracking-wide">Status</th>
-                <th className="px-4 py-3 text-right font-semibold tracking-wide">Actions</th>
+                <th className="px-4 py-3 font-bold">Code</th>
+                <th className="px-4 py-3 font-bold">Name</th>
+                <th className="px-4 py-3 font-bold">Email</th>
+                <th className="px-4 py-3 font-bold">Designation</th>
+                <th className="px-4 py-3 font-bold">Department</th>
+                <th className="px-4 py-3 font-bold">Team</th>
+                <th className="px-4 py-3 font-bold">Status</th>
+                <th className="px-4 py-3 text-right font-bold">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border">
@@ -102,9 +102,13 @@ export function EmployeeTable({
                     </span>
                   </td>
                   <td className="px-4 py-3.5 text-right">
-                    <Button variant="outline" size="sm" onClick={() => onEdit(employee)}>
+                    <Button
+                      variant="outline"
+                      size="icon-sm"
+                      onClick={() => onEdit(employee)}
+                      aria-label="Edit employee"
+                    >
                       <Pencil className="size-3.5" />
-                      Edit
                     </Button>
                   </td>
                 </tr>

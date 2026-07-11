@@ -250,15 +250,15 @@ function SeatAllocationTable({
     <Card className="overflow-hidden">
       <CardContent className="p-0">
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[900px] text-left text-sm">
-            <thead className="border-b border-border bg-muted/50 text-xs uppercase text-muted-foreground">
+          <table className="w-full min-w-[900px] text-left text-xs">
+            <thead className="border-b border-border bg-muted/30 text-[11px] text-muted-foreground">
               <tr>
-                <th className="px-4 py-3 font-semibold tracking-wide">Employee</th>
-                <th className="px-4 py-3 font-semibold tracking-wide">Seat</th>
-                <th className="px-4 py-3 font-semibold tracking-wide">Zone</th>
-                <th className="px-4 py-3 font-semibold tracking-wide">Floor</th>
-                <th className="px-4 py-3 font-semibold tracking-wide">Status</th>
-                <th className="px-4 py-3 text-right font-semibold tracking-wide">Actions</th>
+                <th className="px-4 py-3 font-bold">Employee</th>
+                <th className="px-4 py-3 font-bold">Seat</th>
+                <th className="px-4 py-3 font-bold">Zone</th>
+                <th className="px-4 py-3 font-bold">Floor</th>
+                <th className="px-4 py-3 font-bold">Status</th>
+                <th className="px-4 py-3 text-right font-bold">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border">
@@ -326,9 +326,9 @@ function ReleaseConfirmation({
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/45 p-4 backdrop-blur-sm">
-      <div className="w-full max-w-md rounded-lg border border-border bg-background p-5 shadow-xl shadow-black/10">
-        <h3 className="text-lg font-semibold">Release seat allocation?</h3>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 p-4 backdrop-blur-[2px]">
+      <div className="w-full max-w-md rounded-xl border border-border bg-background p-5 shadow-2xl shadow-slate-950/20">
+        <h3 className="text-base font-bold">Release seat allocation?</h3>
         <p className="mt-2 text-sm text-muted-foreground">
           This will mark the allocation as released. The record will not be deleted.
         </p>
