@@ -12,7 +12,7 @@ const employeeSchema = z.object({
   employee_code: z.string().min(1, "Employee code is required"),
   first_name: z.string().min(1, "First name is required"),
   last_name: z.string().min(1, "Last name is required"),
-  email: z.email("Enter a valid email"),
+  email: z.string().email("Enter a valid email"),
   designation: z.string().min(1, "Designation is required"),
   department_id: z.number().int().positive("Department ID is required"),
   team_id: z.number().int().positive("Team ID is required"),
@@ -52,11 +52,11 @@ export function EmployeeForm({
   onSubmit,
 }: EmployeeFormProps) {
   const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<EmployeeFormValues>({
+  register,
+  handleSubmit,
+  reset,
+  formState: { errors },
+} = useForm<EmployeeFormValues>({
     resolver: zodResolver(employeeSchema),
     defaultValues,
   })
@@ -82,7 +82,15 @@ export function EmployeeForm({
   }, [employee, reset])
 
   return (
-    <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
+    <form className="space-y-4" onSubmit={handleSubmit(
+  (data) => {
+    console.log("SUCCESS", data);
+    onSubmit(data);
+  },
+  (errors) => {
+    console.log("ERRORS", errors);
+  }
+)}>
       <div className="grid gap-4 sm:grid-cols-2">
         <FormField label="Employee Code" error={errors.employee_code?.message}>
           <input className="form-input" disabled={isSubmitting} {...register("employee_code")} />
