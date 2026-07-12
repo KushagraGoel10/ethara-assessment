@@ -70,15 +70,15 @@ export default function Home() {
 
   return (
     <AppLayout>
-      <div className="space-y-5">
+      <div className="min-w-0 space-y-5">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-          <div>
+          <div className="min-w-0">
             <h2 className="text-2xl font-bold tracking-tight">Dashboard</h2>
             <p className="mt-1 text-sm text-muted-foreground">
               Welcome back, Admin! Here&apos;s what&apos;s happening in your workspace.
             </p>
           </div>
-          <div className="flex h-10 w-fit items-center gap-2 rounded-lg border border-border bg-background px-3 text-sm text-muted-foreground shadow-sm">
+          <div className="flex h-10 w-fit shrink-0 items-center gap-2 rounded-lg border border-border bg-background px-3 text-sm text-muted-foreground shadow-sm">
             <CalendarDays className="size-4" />
             <span>Current workspace snapshot</span>
           </div>
@@ -98,7 +98,7 @@ export default function Home() {
         ) : null}
 
         {isLoading ? (
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-7">
+          <div className="grid min-w-0 gap-4 sm:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-7">
             {Array.from({ length: 7 }).map((_, index) => (
               <MetricCardSkeleton key={index} />
             ))}
@@ -107,7 +107,7 @@ export default function Home() {
 
         {data ? (
           <>
-            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-7">
+            <div className="grid min-w-0 gap-4 sm:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-7">
               <MetricCard
                 title="Total Employees"
                 value={data.total_employees}
@@ -159,13 +159,13 @@ export default function Home() {
               />
             </div>
 
-            <div className="grid gap-4 xl:grid-cols-[1fr_1.35fr_1fr]">
-              <Card>
+            <div className="grid min-w-0 gap-4 xl:grid-cols-2 2xl:grid-cols-[1fr_1.35fr_1fr]">
+              <Card className="min-w-0">
                 <CardHeader>
                   <CardTitle className="text-base font-bold text-foreground">Seat Utilization</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="flex flex-col items-center gap-6 sm:flex-row">
+                  <div className="flex min-w-0 flex-col items-center gap-6 sm:flex-row">
                     <div
                       className="grid size-40 shrink-0 place-items-center rounded-full"
                       style={{
@@ -183,7 +183,7 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                    <div className="w-full space-y-4 text-sm">
+                    <div className="w-full min-w-0 space-y-4 text-sm">
                       <LegendRow
                         color="bg-primary"
                         label="Utilized Seats"
@@ -201,7 +201,7 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="min-w-0">
                 <CardHeader>
                   <CardTitle className="text-base font-bold text-foreground">Team Overview</CardTitle>
                 </CardHeader>
@@ -215,7 +215,7 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="min-w-0 xl:col-span-2 2xl:col-span-1">
                 <CardHeader className="flex-row items-center justify-between">
                   <CardTitle className="text-base font-bold text-foreground">Recent Activity</CardTitle>
                   <span className="rounded-lg border border-border px-3 py-1 text-xs font-semibold text-muted-foreground">
@@ -233,7 +233,7 @@ export default function Home() {
               </Card>
             </div>
 
-            <Card>
+            <Card className="min-w-0">
               <CardHeader>
                 <CardTitle className="text-base font-bold text-foreground">Project Utilization</CardTitle>
               </CardHeader>
@@ -285,9 +285,10 @@ function BarOverview({ items }: { items: { label: string; value: number }[] }) {
   }
 
   return (
-    <div className="flex h-44 items-end gap-4 overflow-x-auto">
+    <div className="min-w-0 overflow-x-auto">
+      <div className="flex h-44 min-w-max items-end gap-4">
       {items.map((item, index) => (
-        <div key={`${item.label}-${index}`} className="flex min-w-16 flex-1 flex-col items-center gap-2">
+        <div key={`${item.label}-${index}`} className="flex w-20 shrink-0 flex-col items-center gap-2">
           <div className="flex h-32 w-full items-end justify-center border-b border-border">
             <div
               className="w-6 rounded-t-md bg-primary/40"
@@ -300,6 +301,7 @@ function BarOverview({ items }: { items: { label: string; value: number }[] }) {
           </p>
         </div>
       ))}
+      </div>
     </div>
   )
 }
